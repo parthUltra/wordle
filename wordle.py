@@ -1,7 +1,8 @@
-import random
-from colorama import Fore
 import os
+import random
+from argparse import ArgumentParser
 
+from colorama import Fore
 
 with open("./words.txt") as wordle_words_file:
     wordle_words = wordle_words_file.read().splitlines()
