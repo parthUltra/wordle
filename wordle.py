@@ -1,7 +1,8 @@
-import random
-from colorama import Fore
 import os
+import random
+from argparse import ArgumentParser
 
+from colorama import Fore
 
 with open("./words.txt") as wordle_words_file:
     wordle_words = wordle_words_file.read().splitlines()
@@ -127,6 +128,22 @@ def print_keys(keyboard_state, edits):
     return keyboard_state
 
 
+def get_parser() -> ArgumentParser:
+    parser = ArgumentParser(prog="wordle", description="command-line wordle")
+    parser.add_argument("--hard", action="store_true", help="play wordle in hard mode")
+    parser.add_argument(
+        "--attempts", "-a", type=int, help="number of attempts", default=6
+    )
+
+    return parser
+
+
+def main():
+    parser = get_parser()
+    args = parser.parse_args()
+
+    play(hard_mode=args.hard, max_attempts=args.attempts)
+
+
 if __name__ == "__main__":
-    play()
-    pass
+    main()
