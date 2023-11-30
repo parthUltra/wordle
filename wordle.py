@@ -4,10 +4,13 @@ from argparse import ArgumentParser
 
 from colorama import Fore
 
-with open("./words.txt") as wordle_words_file:
+WORDLE_WORDS_FILE = "./words.txt"
+ALL_WORDS_FILE = "./all_words.txt"
+
+with open(WORDLE_WORDS_FILE) as wordle_words_file:
     wordle_words = wordle_words_file.read().splitlines()
 
-with open("./all_words.txt") as all_words_file:
+with open(ALL_WORDS_FILE) as all_words_file:
     all_words = all_words_file.read().splitlines()
 
 
