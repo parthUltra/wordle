@@ -4,56 +4,34 @@ Wordle in the terminal. Mac and Linux.
 
 ## Install
 
-### 1. Install Go (skip if you already have it)
+Copy one block. It installs Go if needed, installs `wordle`, and puts it on your PATH.
 
 **macOS**
 
 ```bash
-brew install go
+brew install go && go install github.com/parthUltra/wordle@latest && echo 'export PATH="$PATH:$(go env GOPATH)/bin"' >> ~/.zshrc && source ~/.zshrc && wordle help
 ```
 
-**Linux**
+**Linux (apt)**
 
 ```bash
-sudo apt install golang-go
+sudo apt install -y golang-go && go install github.com/parthUltra/wordle@latest && echo 'export PATH="$PATH:$(go env GOPATH)/bin"' >> ~/.bashrc && source ~/.bashrc && wordle help
 ```
 
-If you're not on apt (Fedora/Arch/etc.), or want the newest Go: https://go.dev/dl/
-
-### 2. Install wordle
+If Go is already installed, you only need:
 
 ```bash
 go install github.com/parthUltra/wordle@latest
 ```
 
-### 3. Put it on your PATH (once)
+…and make sure `$(go env GOPATH)/bin` is on your PATH (the one-liners above do that for you).
 
-**macOS (zsh)**
-
-```bash
-echo 'export PATH="$PATH:$(go env GOPATH)/bin"' >> ~/.zshrc && source ~/.zshrc
-```
-
-**Linux (bash)**
-
-```bash
-echo 'export PATH="$PATH:$(go env GOPATH)/bin"' >> ~/.bashrc && source ~/.bashrc
-```
-
-Then type `wordle` and play.
+Other Linux distros / latest Go: https://go.dev/dl/
 
 From a clone instead:
 
 ```bash
-git clone https://github.com/parthUltra/wordle.git
-cd wordle
-make install
-```
-
-If `wordle` is not found after `make install`:
-
-```bash
-echo 'export PATH="$PATH:$HOME/.local/bin"' >> ~/.zshrc && source ~/.zshrc
+git clone https://github.com/parthUltra/wordle.git && cd wordle && make install && echo 'export PATH="$PATH:$HOME/.local/bin"' >> ~/.zshrc && source ~/.zshrc
 ```
 
 ## Play
