@@ -4,30 +4,50 @@ Wordle in the terminal. Mac and Linux.
 
 ## Install
 
-You need [Go 1.25+](https://go.dev/dl/). Then one command:
+### 1. Install Go (skip if you already have it)
+
+**macOS**
+
+```bash
+brew install go
+```
+
+**Linux**
+
+```bash
+sudo apt install golang-go
+```
+
+If you're not on apt (Fedora/Arch/etc.), or want the newest Go: https://go.dev/dl/
+
+### 2. Install wordle
 
 ```bash
 go install github.com/parthUltra/wordle@latest
 ```
 
-Put Go's bin directory on your `PATH` if it isn't already (once):
+### 3. Put it on your PATH (once)
+
+**macOS (zsh)**
 
 ```bash
-# zsh (default on macOS)
 echo 'export PATH="$PATH:$(go env GOPATH)/bin"' >> ~/.zshrc && source ~/.zshrc
+```
 
-# bash (common on Linux)
+**Linux (bash)**
+
+```bash
 echo 'export PATH="$PATH:$(go env GOPATH)/bin"' >> ~/.bashrc && source ~/.bashrc
 ```
 
-Type `wordle` and play.
+Then type `wordle` and play.
 
 From a clone instead:
 
 ```bash
 git clone https://github.com/parthUltra/wordle.git
 cd wordle
-make install          # copies to ~/.local/bin
+make install
 ```
 
 If `wordle` is not found after `make install`:
